@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const albumsData = [
         { name: "Flash Back Pop Corn", artist: "Pop Corn", image: "./assets/popcorn.png", music: "assets/bk-music/popcorn.mp3" },
         { name: "X Pone feat. Queen Regina - Stranger In Paradise", artist: "Regina", image: "./assets/xpone.png", music: "assets/bk-music/xpone.mp3" },
-        { name: "Single Erasure", artist: "Erasure", image: "./assets/erasure.png" },
+        { name: "Single Erasure", artist: "Erasure", image: "./assets/erasure.png", music:"./assets/bk-music/erasure.mp3" },
         { name: "Single Sharking Steve", artist: "Sharking Steve", image: "./assets/shakinsteve.png", music: "assets/bk-music/shakin.mp3" },
         { name: "Remix Pingos de Amor", artist: "Sampa Crew", image: "./assets/sampacrew.png", music: "assets/bk-music/sampa.mp3" },
     ];
@@ -45,19 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 
         `
         albumsGrid.appendChild(albumsCard)
-    })
-    const albumImage = albumCard.querySelector('img')
-    albumImage.addEventListener('click', () => {
-        try {
-            // Play the corresponding music
-            musicPlayer.src = album.music
-            musicPlayer.play()
-        } catch (error) {
-            console.error(`Error playing music: ${error.message}`)
-        }
+
+        // Adicione um evento de clique à imagem do álbum
+        const albumImage = albumsCard.querySelector('img')
+        albumImage.addEventListener('click', () => {
+            try {
+                // Reproduza a música correspondente
+                musicPlayer.src = album.music
+                musicPlayer.play()
+            } catch (error) {
+                console.error(`Error playing music: ${error.message}`)
+            }
+        })
     })
 })
-
-
-
-
